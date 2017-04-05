@@ -1,4 +1,4 @@
-public class SavingsAccount extends Account{
+public class SavingsAccount extends Account implements Valuable{
 	private double creditLimit, interest, loanInterest, period=12;
 	public SavingsAccount(double money, double interest){
 		super(money);
@@ -25,6 +25,16 @@ public class SavingsAccount extends Account{
 		}
 		setBalance(super.balance()*calculate);
 	}
+	@Override
+	public double EstimateValue(int month) {
+		passTime(month);
+		return super.balance();
+	}
 	
-	
+
+	public String toString(){
+		
+		return String.format("SavingsAccount_Balance: %.2f",super.balance());
+	}
+
 }

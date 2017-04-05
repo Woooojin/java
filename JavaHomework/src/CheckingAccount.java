@@ -1,4 +1,4 @@
-public class CheckingAccount extends Account{
+public class CheckingAccount extends Account implements Valuable{
 	private double creditLimit, interest, loanInterest;
 	public CheckingAccount(double money, double creditLimit, double interest, double loanInterest){
 		super(money);
@@ -28,4 +28,15 @@ public class CheckingAccount extends Account{
 		}
 		setBalance(super.balance()*calculate);
 	}
+	@Override
+	public double EstimateValue(int month) {
+		passTime(month);
+		return super.balance();
+	}
+
+	public String toString(){
+		
+		return String.format("CheckingAccount_Balance: %.2f",super.balance());
+	}
+
 }
