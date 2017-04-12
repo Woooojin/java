@@ -5,8 +5,8 @@ public abstract class Account {
 	public Account (double money){
 		account = money;
 	}
-	public void credit(double money) {
-		account += money;
+	public void debit(double money) throws Exception {
+		account -= money;
 	}
 	public double balance() {
 		return account;

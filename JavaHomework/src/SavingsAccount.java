@@ -4,8 +4,9 @@ public class SavingsAccount extends Account implements Valuable{
 		super(money);
 		this.interest = interest;
 	}
-	public void debit(double money) {
-		if(period > 0) System.out.print("아직 출금할 수 없습니다.\n");
+	public void debit(double money) throws Exception{
+		if(period > 0) 
+			throw new Exception("아직 출금할 수 없습니다.\n");
 		else setBalance(super.balance() - money);
 	}
 

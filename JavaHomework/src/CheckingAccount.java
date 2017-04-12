@@ -6,8 +6,9 @@ public class CheckingAccount extends Account implements Valuable{
 		this.interest = interest;
 		this.loanInterest = loanInterest;
 	}
-	public void debit(double money) {
-		if(super.balance() - money >creditLimit+super.balance()) System.out.print("\nDebit amount exceeded account balance");
+	public void debit(double money) throws Exception{
+		if(money >creditLimit+super.balance()) throw new Exception("Debit amount exceeded account balance.\n");
+		else if(money<0) throw new Exception("음수입력!\n");
 		else setBalance(super.balance() - money);
 	}
 	public void nextMonth(){
